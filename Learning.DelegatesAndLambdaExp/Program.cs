@@ -44,9 +44,21 @@ namespace Learning.DelegatesAndLambdaExp
                 ProcessAndDisplayNumber(operations[i], 1.414);
                 Console.WriteLine();
             }
+            
+            /*______________________________________________________________*/
 
+            Employee[] employees = 
+            {
+                new Employee("Bugs Bunny", 20000),
+                new Employee("Elmer Fudd", 10000),
+                new Employee("Daffy Duck", 25000),
+                new Employee("Willie Coyote", 10000.38m)
+            };
 
-                Console.ReadLine();
+            BubbleSorter.Sort<Employee>(employees, Employee.CompareSalary);
+            foreach (var employee in employees) Console.WriteLine(employee);
+            
+            Console.ReadLine();
         }
 
         static void ProcessAndDisplayNumber(DoubleOp action, double value) {
