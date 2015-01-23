@@ -58,7 +58,39 @@ namespace Learning.DelegatesAndLambdaExp
             BubbleSorter.Sort<Employee>(employees, Employee.CompareSalary);
             foreach (var employee in employees) Console.WriteLine(employee);
             
+            /*____________________Anonymous methods__________________________*/
+
+            string mid = ", middle part, ";
+
+            Func<string, string> anonDel =
+                delegate(string param)
+                {
+                    param += mid;
+                    param += " and this was added to string.";
+                    return param;
+                };
+
+            Console.WriteLine(anonDel("Starts of string"));
+
+
+            /*____________________Lambda expression__________________________*/
+
+           
+            Func<string, string> lambda = param =>
+             {
+                    param += mid;
+                    param += " and this was added to string.";
+                    return param;
+                };
+
+            Console.WriteLine(lambda("Starts of string"));
+
+
+            Func<int, int> fortwo = nint => nint + nint;
+            Console.WriteLine(fortwo(3));
+
             Console.ReadLine();
+
         }
 
         static void ProcessAndDisplayNumber(DoubleOp action, double value) {
